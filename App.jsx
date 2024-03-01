@@ -10,16 +10,20 @@ import ToDoList from './components/ToDoList';
 import ToDoForm from './components/ToDoForm';
 
 function App() {
-  const [items, setItems] = React.useState([
+  const [tasks, setTasks] = React.useState([
     'Do laundry',
     'Go to gym',
     'Walk dog',
   ]);
 
+  const handleAddTask = task => {
+    setTasks([...tasks, task]);
+  };
+
   return (
     <SafeAreaView>
-      <ToDoList items={items} />
-      <ToDoForm />
+      <ToDoList tasks={tasks} />
+      <ToDoForm addTask={handleAddTask} />
     </SafeAreaView>
   );
 }
